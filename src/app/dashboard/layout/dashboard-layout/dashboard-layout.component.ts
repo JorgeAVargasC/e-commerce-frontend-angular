@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, Component } from '@angular/core'
+import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
+import { AuthService } from '../../../auth/services/auth.service'
 
 @Component({
   selector: 'app-dashboard-layout',
@@ -8,4 +9,13 @@ import { RouterOutlet } from '@angular/router'
   templateUrl: './dashboard-layout.component.html',
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class DashboardLayoutComponent {}
+export class DashboardLayoutComponent {
+
+  private readonly _authService = inject(AuthService)
+
+  public user = computed(() => this._authService.currentUser())
+
+
+
+
+}
