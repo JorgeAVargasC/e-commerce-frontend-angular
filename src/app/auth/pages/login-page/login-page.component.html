@@ -1,0 +1,33 @@
+<div class="grid gap-4">
+  <h6>Login</h6>
+  <form
+    [formGroup]="loginForm"
+    (submit)="login()"
+    class="grid gap-3"
+  >
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="email"
+        autocomplete="off"
+        formControlName="email"
+      />
+      <label for="email">Email</label>
+    </p-floatlabel>
+    <p-floatlabel variant="in">
+      <input
+        pInputText
+        id="password"
+        autocomplete="off"
+        formControlName="password"
+      />
+      <label for="password">Password</label>
+    </p-floatlabel>
+
+    <p-button
+      [disabled]="loginForm.invalid"
+      label="Login"
+      type="submit"
+    />
+  </form>
+</div>
