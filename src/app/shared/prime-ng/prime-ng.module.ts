@@ -19,6 +19,8 @@ import { ScrollTopModule } from 'primeng/scrolltop'
 import { DrawerModule } from 'primeng/drawer'
 import { ChipModule } from 'primeng/chip'
 import { FloatLabelModule } from 'primeng/floatlabel'
+import { MessageService } from 'primeng/api'
+import { Toast } from 'primeng/toast'
 
 @NgModule({
   imports: [
@@ -41,7 +43,8 @@ import { FloatLabelModule } from 'primeng/floatlabel'
     DrawerModule,
     DialogModule,
     ChipModule,
-    FloatLabelModule
+    FloatLabelModule,
+    Toast
   ],
   exports: [
     TableModule,
@@ -63,7 +66,9 @@ import { FloatLabelModule } from 'primeng/floatlabel'
     DrawerModule,
     DialogModule,
     ChipModule,
-    FloatLabelModule
-  ]
+    FloatLabelModule,
+    Toast
+  ],
+  providers: [MessageService]
 })
 export class PrimeNgModule {}

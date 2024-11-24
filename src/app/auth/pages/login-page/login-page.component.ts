@@ -7,6 +7,8 @@ import {
 } from '@angular/forms'
 import { PrimeNgModule } from '../../../shared/prime-ng'
 import { AuthService } from '../../services/auth.service'
+import { MessageService } from 'primeng/api'
+import { Router } from '@angular/router'
 
 @Component({
   selector: 'app-login-page',
@@ -16,10 +18,12 @@ import { AuthService } from '../../services/auth.service'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class LoginPageComponent {
-  private fb = inject(FormBuilder)
-  private authService = inject(AuthService)
+  private readonly _fb = inject(FormBuilder)
+  private readonly _authService = inject(AuthService)
+  private readonly _messageService = inject(MessageService)
+  private readonly _router = inject(Router)
 
-  public loginForm: FormGroup = this.fb.group({
+  public loginForm: FormGroup = this._fb.group({
     email: ['', [Validators.required, Validators.email]],
     password: ['', [Validators.required, Validators.minLength(6)]]
   })
@@ -27,12 +31,22 @@ export class LoginPageComponent {
   login() {
     if (this.loginForm.invalid) return
 
-    this.authService.login(this.loginForm.value).subscribe({
+    this._authService.login(this.loginForm.value).subscribe({
       next: (res) => {
-        console.log(res)
+        this._router.navigate(['/dashboard'])
+
+        this._messageService.add({
+          severity: 'success',
+          summary: 'Success',
+          detail: 'Success Login'
+        })
       },
       error: (err) => {
-        console.error(err)
+        this._messageService.add({
+          severity: 'error',
+          summary: 'Error',
+          detail: err
+        })
       }
     })
   }

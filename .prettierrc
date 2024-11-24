@@ -17,5 +17,12 @@
   "useTabs": false,
   "vueIndentScriptAndStyle": false,
   "printWidth": 80,
-  "endOfLine": "auto"
+  "endOfLine": "auto",
+  "importOrder": ["^@angular/(.*)$", "^rxjs/(.*)$", "^[./]"],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true,
+  "plugins": [
+    "prettier-plugin-tailwindcss",
+    "@trivago/prettier-plugin-sort-imports"
+  ]
 }
