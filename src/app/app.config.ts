@@ -7,13 +7,13 @@ import { provideAnimationsAsync } from '@angular/platform-browser/animations/asy
 import { provideRouter } from '@angular/router'
 
 import { routes } from './app.routes'
-import { baseUrlInterceptor } from './shared/interceptors'
+import { baseUrlInterceptor, tokenInterceptor } from './shared/interceptors'
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideHttpClient(withInterceptors([baseUrlInterceptor])),
+    provideHttpClient(withInterceptors([baseUrlInterceptor, tokenInterceptor])),
     provideAnimationsAsync(),
     providePrimeNG({
       theme: {

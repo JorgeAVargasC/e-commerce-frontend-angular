@@ -1,6 +1,6 @@
 import { User } from '../interfaces'
 
-export interface ILoginResponse {
+export interface IRefreshTokenResponse {
   user: User
   token: string
 }
