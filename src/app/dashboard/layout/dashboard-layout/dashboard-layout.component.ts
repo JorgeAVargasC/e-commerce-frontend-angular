@@ -1,4 +1,9 @@
-import { ChangeDetectionStrategy, Component, computed, inject } from '@angular/core'
+import {
+  ChangeDetectionStrategy,
+  Component,
+  computed,
+  inject
+} from '@angular/core'
 import { RouterOutlet } from '@angular/router'
 import { AuthService } from '../../../auth/services/auth.service'
 
@@ -10,12 +15,7 @@ import { AuthService } from '../../../auth/services/auth.service'
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class DashboardLayoutComponent {
-
   private readonly _authService = inject(AuthService)
 
   public user = computed(() => this._authService.currentUser())
-
-
-
-
 }

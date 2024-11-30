@@ -6,7 +6,7 @@ export const routes: Routes = [
   {
     path: 'auth',
     loadChildren: () => import('./auth/auth.module').then((m) => m.AuthModule),
-    // canActivate: [PublicRoutesGuard]
+    canActivate: [PublicRoutesGuard]
   },
   {
     path: 'dashboard',

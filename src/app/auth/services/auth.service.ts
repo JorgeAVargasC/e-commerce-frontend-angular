@@ -21,7 +21,13 @@ export class AuthService {
   public currentUser = computed(() => this._currentUser())
   public authStatus = computed(() => this._authStatus())
 
-  private readonly _setAuth = (user: User, token:string) => {
+  constructor() {
+    setTimeout(() => {
+      this.refreshToken().subscribe()
+    }, 5000)
+  }
+
+  private readonly _setAuth = (user: User, token: string) => {
     this._authStatus.set(AuthStatusEnum.authenticated)
     this._currentUser.set(user)
     this._cookiesService.set('token', token)
@@ -47,6 +53,4 @@ export class AuthService {
       catchError((e: HttpErrorResponse) => this._catchError(e))
     )
   }
-
-
 }

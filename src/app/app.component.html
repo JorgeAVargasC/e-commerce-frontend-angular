@@ -1,1 +1,7 @@
-<router-outlet />
+@if (isCheckingAuth()) {
+  <div class="grid min-h-screen place-items-center">
+    <p-progress-spinner ariaLabel="loading" />
+  </div>
+} @else {
+  <router-outlet />
+}

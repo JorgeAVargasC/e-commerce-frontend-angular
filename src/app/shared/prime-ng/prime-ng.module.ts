@@ -21,6 +21,7 @@ import { ChipModule } from 'primeng/chip'
 import { FloatLabelModule } from 'primeng/floatlabel'
 import { MessageService } from 'primeng/api'
 import { Toast } from 'primeng/toast'
+import { ProgressSpinner } from 'primeng/progressspinner'
 
 @NgModule({
   imports: [
@@ -44,7 +45,8 @@ import { Toast } from 'primeng/toast'
     DialogModule,
     ChipModule,
     FloatLabelModule,
-    Toast
+    Toast,
+    ProgressSpinner
   ],
   exports: [
     TableModule,
@@ -67,7 +69,8 @@ import { Toast } from 'primeng/toast'
     DialogModule,
     ChipModule,
     FloatLabelModule,
-    Toast
+    Toast,
+    ProgressSpinner
   ],
   providers: [MessageService]
 })
